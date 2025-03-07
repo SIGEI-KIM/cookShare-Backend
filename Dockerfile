@@ -1,14 +1,17 @@
+# Use a multi-stage build
+
 # Stage 1: Build the application
 # Use a Maven-enabled image
-FROM maven:3.8.7-jdk-17 AS builder
+FROM maven:3.8.7-jdk-17-slim AS builder
 WORKDIR /app
 COPY pom.xml .
 COPY src ./src
-RUN mvn clean package
+RUN mvn clean install -DskipTests
 
 # Stage 2: Create the final image
 FROM eclipse-temurin:17-jdk-jammy
 WORKDIR /app
-COPY --from=builder /app/target/your-app.jar ./app.jar
+COPY --from=builder /app/target/*.jar app.jar
+# Or the port your app uses
 EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "app.jar"]
+CMD ["java", "-jar", "app.jar"]
