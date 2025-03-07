@@ -21,7 +21,7 @@ public class AppConfig {
             @Override
             public void addCorsMappings(@NonNull CorsRegistry registry) {
                 registry.addMapping("/**")
-                        .allowedOrigins("https://your-react-app.onrender.com")
+                        .allowedOrigins("https://cookshare-front.onrender.com")
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                         .allowedHeaders("*")
                         .allowCredentials(true);
