@@ -1,7 +1,8 @@
 # Use a multi-stage build
 
 # Stage 1: Build the application
-FROM maven:3.8.7-jdk-17-slim AS builder  # Use a Maven-enabled image
+# Use a Maven-enabled image
+FROM maven:3.8.7-jdk-17-slim AS builder
 WORKDIR /app
 COPY pom.xml .
 COPY src ./src
