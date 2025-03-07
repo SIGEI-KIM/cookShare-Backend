@@ -1,33 +1,12 @@
-spring:
-  application:
-    name: cookshare
-
-  datasource:
-    url: jdbc:postgresql://localhost:5432/cookshare_db
-    username: postgres
-    password: S3cret@x1234
-    driver-class-name: org.postgresql.Driver
-
-  jpa:
-    hibernate:
-      ddl-auto: update
-    show-sql: true
-    properties:
-      hibernate:
-        format_sql: true
-        globally_quoted_identifiers: true
-        dialect: org.hibernate.dialect.PostgreSQLDialect
-
 #spring:
 #  application:
 #    name: cookshare
 #
-#  spring:
-#    datasource:
-#      url: jdbc:postgresql://192.168.100.56:5432/cookshare_db
-#      username: postgres
-#      password: S3cret@x1234
-#      driver-class-name: org.postgresql.Driver
+#  datasource:
+#    url: jdbc:postgresql://localhost:5432/cookshare_db
+#    username: postgres
+#    password: S3cret@x1234
+#    driver-class-name: org.postgresql.Driver
 #
 #  jpa:
 #    hibernate:
@@ -38,3 +17,21 @@ spring:
 #        format_sql: true
 #        globally_quoted_identifiers: true
 #        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+spring:
+  application:
+    name: cookshare
+  datasource:
+    url: ${DATABASE_URL}
+    username: ${DATABASE_USERNAME}
+    password: ${DATABASE_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        globally_quoted_identifiers: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
